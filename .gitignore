@@ -1,0 +1,7 @@
+.DS_Store
+*.epub
+*.pdf
+_raw/
+_ocr/
+full_text.txt
+metadata.json
