@@ -1,16 +1,22 @@
-# feng-junqi-county-cadres
+# fengjunqi
 
-基于冯军旗《中县干部》的县域政治精英生涯分析知识库。
+`fengjunqi` is a unified router skill for Feng Junqi's《中县干部》.
 
-本版本为 2026-09-21 EPUB fold-in：保留既有 9 章结构，新增源本对齐、更新日志和验证记录。
+It merges:
 
-- 入口：`SKILL.md`
-- 源本路由：`SOURCE_MAP.md`
-- 更新：`UPDATE_LOG.md`
-- 验证：`VALIDATION.md`
-- 章节：`chapters/`
-- 方法与模式：`patterns.md`
-- 术语：`glossary.md`
-- 速查：`cheatsheet.md`
+- the book-to-skill knowledge base: chapters, glossary, patterns, cheatsheet, and source map;
+- the cangjie-derived ten executable modules: research method, trajectory, entry/first job, elite clusters, incubator audit, performance regime, genuine performance audit, relation-rule dual loop, institutional adaptation, and discipline-risk mapping.
 
-本 skill 只用于制度分析、研究教学、合规审计和风险识别，不提供人事操纵、拉票、送礼或规避监督的操作建议。
+The user only invokes `fengjunqi`. The model routes the request to the appropriate internal module and reads only the relevant knowledge chapter.
+
+## Layout
+
+- `SKILL.md` — router and safety gate
+- `modules/` — ten executable analysis modules
+- `knowledge/chapters/` — synthesized chapter knowledge base
+- `references/` — glossary, patterns, cheatsheet, and source map
+- `tests/` — router validation cases
+
+## License and redistribution
+
+This repository contains structured analytical notes and agent-skill files derived from a user-provided copy of Feng Junqi's dissertation. Redistribution is not authorized unless separately permitted by the copyright holder.

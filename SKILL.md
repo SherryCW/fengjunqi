@@ -1,125 +1,89 @@
 ---
-name: feng-junqi-county-cadres
-description: "Knowledge base from \"中县干部\" by 冯军旗. Use when applying political-elite career analysis to county cadres, institutionalized promotion, performance incentives, key posts, elite clusters, informal relations, or discipline risks; also for studying or referencing the book."
+name: fengjunqi
+description: "Use as the single entry point for questions about Feng Junqi's book《中县干部》, county cadres, county-level political elites, cadre career trajectories, entry channels, first jobs, elite clusters, cadre incubators, target responsibility and performance regimes, genuine versus false performance, political families, relation-rule interaction, institutional adaptation, discipline and power-risk mapping, or county political research methods. Trigger on Chinese terms such as 中县干部, 县域干部, 政治精英, 晋升轨迹, 初职, 干部摇篮, 政绩考核, 政绩同构, 关系网, 政治家族, 双环模型, 制度化困境, and discipline risk. Also use for academic, policy-analysis, governance-research, compliance-risk, or dissertation-style questions that concern these topics. Do not use for current legal compliance advice, personnel decisions, background checks, prediction of an individual's promotion or discipline outcome, operational vote canvassing, gift or relationship-building strategy, evading supervision, or claims about current party/government rules without verification."
+source_book: 《中县干部》 冯军旗
+tags: [county-cadres, political-sociology, governance, career-analysis, institutional-analysis]
 ---
 
-<!-- argument-hint: [主题、框架名或章节号，如 政绩同构、双环模型、ch06] -->
+# Fengjunqi — County Cadre Analysis Router
 
-# 《中县干部》
+`fengjunqi` 是总入口技能。用户不需要选择子技能；你根据问题自动路由到内部模块，并按需读取知识章节。
 
-**作者**：冯军旗 | **篇幅**：约201页 | **章节**：9 | **生成**：2026-08-31 | **EPUB fold-in**：2026-09-21
+## First safety gate
 
-## 如何使用
+Before analysis, screen for:
 
-- **无参数**：载入下列核心框架，用于分析县域干部、组织精英与制度运行。
-- **给主题**：如“初职”“干部摇篮”“假政绩”“关系与规则”，先从主题索引定位并读取对应章节。
-- **给章节**：如 `ch04`，读取该章的框架、案例和反模式。
-- **要研究设计**：读取 ch01，并结合 `patterns.md` 的生涯分析与多源互证方法。
+1. Requests to predict a specific person's promotion, discipline, or career outcome.
+2. Requests for operational vote canvassing, gift giving, relationship-building tactics, or evading oversight.
+3. Requests for current legal or party-discipline conclusions without source verification.
+4. Requests to identify, expose, or profile private individuals or families.
 
-若问题不在核心框架中，必须先读取相关章节文件再回答。
+If present, refuse the operational part. You may still offer a general institutional or research discussion with anonymized structure and clear uncertainty.
 
-## 源本路由
+## Routing procedure
 
-提问后先判断层级：
+1. **Classify the question** into one primary module.
+2. **Read the module file** in `modules/`.
+3. **Read only the needed knowledge chapter** under `knowledge/chapters/` if concepts or background are missing.
+4. **Return analysis**, not a summary of the book.
+5. **Name uncertainty**: source period, single-county scope, evidence type, and what would need verification.
+6. If a broad question needs several modules, give a short module plan and execute them in order.
 
-- **方法问题** → ch01；必要时读取 `patterns.md`。
-- **群体结构** → ch02。
-- **进入与初职** → ch03。
-- **晋升轨迹** → ch04；结语补充政—党螺旋。
-- **机构与岗位** → ch05。
-- **政绩与考核** → ch06。
-- **关系与规则** → ch07。
-- **监督与纪律** → ch08。
-- **理论汇总与限制** → ch09。
+## Router
 
-具体章、节、证据边界见 [SOURCE_MAP.md](SOURCE_MAP.md)。书中的关系运作、拉票、政治家族、纪律规避等材料只可用于制度分析、合规审计、风险识别和研究教学；不得转化为操纵人事、送礼、拉票、规避问责或规避监督的操作指南。当代纪律与法律问题必须另行核对现行规定。
-
----
-
-## 核心框架与心智模型
-
-### 1. 从生涯进入制度：政治精英生涯分析
-
-用个人的成长环境、初职、关键转折、单位流动、晋升间隔与退出，连接中观的机构生态和宏观的制度结构。分析时不要停在“谁当了什么官”，而要重建完整路径；履历负责时间骨架，深访负责解释转折，档案与多方访谈负责互证。这是作者的**履历和访谈二重法**。
-
-### 2. 先画稀缺结构：四级金字塔
-
-副科→正科→副处→正处，职位逐层收缩。用金字塔判断竞争强度，再把正式级别与实职/虚职、权力资源、年龄窗口结合。平级调动不一定是横向移动：同级不同职务构成**隐性台阶**，既可训练、激励和筛选，也会让人长期转圈并耗尽政治生命周期。
-
-### 3. 解释入口：三层筛选＋初职三元模型
-
-作者把大中专教育、军队转业、吸收录用视为三层精英筛选；后者更容易受到身份与关系污染。具体初职由三类变量共同决定：人力资本（教育/专业）、社会资本（关系）、单位机会结构（需求/空缺/编制）。核心机关常采用**再筛选**：先让人经历基层或业务实践，再择优调入和试用。用此框架分析“起点差异如何变成长期差异”，但不要把结果完全归因于出身。
-
-### 4. 解释区域集中：精英集群
-
-**精英集群**是作者在结语中明确提出的概念：教育传统、交通文化、人口基础、既有领导与组织网络产生榜样和互助，继而形成路径依赖与优势累积。用于解释某地域为何持续出干部；不能把网络优势误写成个人能力，也不能把单县发现直接外推全国。
-
-### 5. 解释上升：混合轨迹＋政—党螺旋
-
-单一型在一个单位内成长，混合型跨单位、跨岗位历练；后者在样本中占主流。作者明确提出**政—党螺旋晋升模式**：先在政府系统处理实际问题，再进入党委决策岗位，随后进入更高一级政府与党委。它说明地方党政精英是混岗培养的一元队伍，而不是完全分离的两条通道。党政一线继续晋升、人大政协提供出口，共同形成超稳定结构。
-
-### 6. 识别加速器：关键机构＋关键岗位
-
-作者称之为**“双关”机制**。真正的干部摇篮不仅位置显要，还具备严格筛入、高端综合历练、领导信任和持续输出，即**高进高出**。两办、组织部、团县委、重点乡镇、秘书和办公室主任是书中样本。判断时要区分培养效应与选择效应：部门可能只是提前吸收了强者。
-
-### 7. 评估政绩：指挥棒、同构与双强
-
-**政绩型干部体制**通过行政逐级发包、目标分解、量化排名、奖惩和晋升竞赛组织行动。**政绩同构**意味着指标逐级复制：方向正确时产生强动员，方向错误时也同步放大假政绩、债务与折腾。综合指标、绝对绩效并兼顾相对绩效，比单一GDP更能解释书中晋升。**双强模式**让强干部流向强乡镇再晋升，提升效率却可能锁死弱乡镇。
-
-判断真政绩，优先看因地制宜、稳健试点、经验技术累积、市场可行与全成本；把运动式、命令式、一刀切、数字造景、行政替代市场和成本下沉视为高风险信号。
-
-### 8. 解释正式与非正式并存：双环模型
-
-**关系与规则双环模型**是作者在结语中明确提出的第三项概念。内环是政策、考察、会议、任命文件；外环是信任、推荐和关系协调。外环常先形成意见，再经正式内环合法化。使用时分别画出两环和连接点，判断关系是在补充信息、降低协调成本，还是绕过资格、监督与公平。晋升必须按多因素模型理解：能力、政绩、关系、领导推荐、群众基础、机遇与资历共同作用。
-
-### 9. 用制度反馈而非制度初衷判断成败
-
-民主推荐旨在扩大参与，却可能演化为拉票网；政绩考核旨在奖励能力，却可能演化为假政绩。作者将此概括为**制度化困境**：制度触发行动者围绕晋升寻找对策，越接近稀缺职位，策略适应越强。分析任何制度时使用：目的→激励→策略适应→反效果→纠偏，并在实施前做中立调查、试点和反向压力测试。
-
-### 10. 纪律是权力—资源—监督问题
-
-不要用案发数量直接替代真实违规率。先识别权力大、资源多、裁量强、监督少、记录弱的高危岗位，再检查决策权与责任是否一致、是否存在选择性执纪和监督者缺乏监督。本章材料用于预防、自律、审计和权责留痕；作者也承认纪律章和核心会议资料未被充分消化。
-
----
-
-## 章节索引
-
-| # | 标题 | 关键框架 |
+| User intent | Module | Primary knowledge |
 |---|---|---|
-| [ch01](chapters/ch01-xulun.md) | 绪论 | 政治精英生涯分析、履历和访谈二重法 |
-| [ch02](chapters/ch02-goucheng.md) | 构成 | 四级金字塔、精英集群、人口学结构 |
-| [ch03](chapters/ch03-jinru.md) | 进入 | 三层筛选、初职三元模型、再筛选、单位流动 |
-| [ch04](chapters/ch04-guiji.md) | 轨迹 | 混合/单一型、隐性台阶、政—党螺旋 |
-| [ch05](chapters/ch05-yaolan.md) | 摇篮 | 双关、高进高出、秘书与办公室主任现象 |
-| [ch06](chapters/ch06-zhengji.md) | 政绩 | 政绩型体制、政绩同构、双强、真/假政绩 |
-| [ch07](chapters/ch07-guanxi.md) | 关系 | 政治家族、拉票网、双环模型、多因素晋升 |
-| [ch08](chapters/ch08-jilv.md) | 纪律 | 纪律网、高危职位、监督与仕途 |
-| [ch09](chapters/ch09-jieyu.md) | 结语 | 三项原创概念、制度化困境、研究边界 |
+| How to research county cadres; sample, interviews, coding, evidence | [`modules/county-political-research-method.md`](modules/county-political-research-method.md) | ch01, ch09 |
+| Analyze a cadre's career sequence, promotion timing, hidden steps, party-government rotation | [`modules/cadre-career-trajectory-decoder.md`](modules/cadre-career-trajectory-decoder.md) | ch02, ch04, ch09 |
+| Explain entry channels, first job, education, professional matching, re-screening | [`modules/entry-first-job-path-analyzer.md`](modules/entry-first-job-path-analyzer.md) | ch02, ch03 |
+| Explain why a place, school, lineage, or locality repeatedly produces cadres | [`modules/elite-cluster-analyzer.md`](modules/elite-cluster-analyzer.md) | ch02, ch07, ch09 |
+| Audit key institutions/posts, cadre incubators, “high entry / high output” | [`modules/cadre-incubator-audit.md`](modules/cadre-incubator-audit.md) | ch04, ch05, ch09 |
+| Explain target responsibility, rankings, rewards, promotion competition, performance regime | [`modules/performance-regime-diagnostic.md`](modules/performance-regime-diagnostic.md) | ch06, ch09 |
+| Evaluate whether claimed achievements are durable, fabricated, costly, or locally useful | [`modules/genuine-performance-audit.md`](modules/genuine-performance-audit.md) | ch06, ch09 |
+| Analyze formal rules plus informal relations, political families, networks, recommendation pressure | [`modules/relation-rule-dual-loop-diagnostic.md`](modules/relation-rule-dual-loop-diagnostic.md) | ch07, ch09 |
+| Diagnose why institutions produce unintended behavior or policy distortion | [`modules/institutional-adaptation-audit.md`](modules/institutional-adaptation-audit.md) | ch06, ch07, ch09 |
+| Map power, resources, discretion, supervision gaps, discipline consequences, and audit risk | [`modules/discipline-risk-mapper.md`](modules/discipline-risk-mapper.md) | ch08, ch09 |
 
-> EPUB前置目录漏列正文第八章《纪律》，并把《结语》标作第八章；本索引按正文九章校正。
+## Ambiguity rules
 
-## 主题索引
+- **Individual career question** → start with `cadre-career-trajectory-decoder`; add `entry-first-job-path-analyzer` for early career and `cadre-incubator-audit` for institution/post effects.
+- **Promotion explanation** → use trajectory first; add performance, relation-rule, or incubator modules only when the question names those mechanisms.
+- **“为什么某地出干部”** → use `elite-cluster-analyzer`.
+- **“考核/指标/排名”** → use `performance-regime-diagnostic`.
+- **“真政绩/假政绩”** → use `genuine-performance-audit`.
+- **“关系/家族/推荐/拉票”** → use `relation-rule-dual-loop-diagnostic`, but only as institutional analysis.
+- **“制度变形/上有政策下有对策”** → use `institutional-adaptation-audit`.
+- **“廉政/处分/监督”** → use `discipline-risk-mapper`.
+- **研究设计** → use `county-political-research-method`.
 
-- **初职、干部入口、专业对口** → ch03
-- **单位流动、顺流/逆流、单位盛衰** → ch03
-- **干部层级、年龄、学历、性别、籍贯** → ch02
-- **干部摇篮、两办、组织部、秘书、办公室主任** → ch05
-- **纪律、腐败风险、高危岗位、问责** → ch08
-- **精英集群** → ch02, ch09
-- **履历分析、访谈、研究方法** → ch01
-- **民主推荐、拉票网、政治家族、关系** → ch07
-- **隐性台阶、混合型轨迹、政—党螺旋** → ch04
-- **政绩考核、政绩同构、双强、假政绩** → ch06
-- **制度化困境、制度反效果、研究局限** → ch09
+## Output format
 
-## 支持文件
+For professional or academic analysis:
 
-- [glossary.md](glossary.md) — 关键术语及章号
-- [patterns.md](patterns.md) — 可迁移的研究与制度诊断模式
-- [cheatsheet.md](cheatsheet.md) — 框架选择、决策规则与证据等级
+1. **Question type** — the routed module.
+2. **Structural observation** — the relevant mechanism or sequence.
+3. **Hypotheses** — 2–4 competing explanations when appropriate.
+4. **Evidence needed** — archival, interview, statistical, or process evidence.
+5. **Analytical conclusion** — bounded by source limits.
+6. **Reassessment / research next step**.
 
----
+For policy or governance analysis, emphasize institutional mechanism, incentive structure, cost, and supervision gap.
 
-## 范围与限制
+For self-contained explanatory questions, answer directly with the routed module's concepts, then cite the source chapter scope.
 
-本技能基于一项截至约2010年的匿名化单县个案研究，适合形成假设、比较履历和诊断制度机制，不代表全国规律，也不替代当代法律、干部政策或事实核验。作者未取得部分书记办公会、常委会等核心资料，并承认无法穷尽晋升的全部因素；回答时必须区分原文发现、作者解释和进一步推断。
+## Knowledge references
+
+- Chapter knowledge: `knowledge/chapters/ch01-xulun.md` through `knowledge/chapters/ch09-jieyu.md`
+- Book knowledge glossary: [`references/knowledge-glossary.md`](references/knowledge-glossary.md)
+- Book knowledge patterns: [`references/knowledge-patterns.md`](references/knowledge-patterns.md)
+- Decision cheatsheet: [`references/knowledge-cheatsheet.md`](references/knowledge-cheatsheet.md)
+- Chapter/section source map: [`references/SOURCE_MAP.md`](references/SOURCE_MAP.md)
+
+## Boundaries
+
+- This is an analytical skill based on Feng Junqi's dissertation and its period-specific county case.
+- It does not predict individual promotions or discipline outcomes.
+- It does not provide vote canvassing, gift-giving, relationship manipulation, or oversight-evasion methods.
+- It does not replace current laws, party regulations, personnel rules, audit procedures, or legal advice.
+- It should not disclose or amplify identifying details about private individuals or families.
+- It must distinguish documentary facts, multi-source accounts, single-source narratives, and author inference.
